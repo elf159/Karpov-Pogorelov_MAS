@@ -13,10 +13,8 @@ public class DishInfo {
     private String cardDescr;
     @SerializedName("card_time")
     private double cardTime;
-    @SerializedName("equip_type")
-    private int equipType;
     @SerializedName("operations")
-    private List<Operation> operations;
+    private List<OperationInfo> operations;
 
     public int getCardId() {
         return cardId;
@@ -34,11 +32,7 @@ public class DishInfo {
         return cardTime;
     }
 
-    public int getEquipType() {
-        return equipType;
-    }
-
-    public List<Operation> getOperations() {
+    public List<OperationInfo> getOperations() {
         return operations;
     }
 
@@ -58,11 +52,7 @@ public class DishInfo {
         this.cardTime = cardTime;
     }
 
-    public void setEquipType(int equipType) {
-        this.equipType = equipType;
-    }
-
-    public void setOperations(List<Operation> operations) {
+    public void setOperations(List<OperationInfo> operations) {
         this.operations = operations;
     }
 }

@@ -11,12 +11,6 @@
       "menu_dish_card": 51,
       "menu_dish_price": 900,
       "menu_dish_active": false
-    },
-    {
-      "menu_dish_id": 191,
-      "menu_dish_card": 122,
-      "menu_dish_price": 150,
-      "menu_dish_active": true
     }
   ]
 }

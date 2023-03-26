@@ -5,44 +5,20 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Operation {
-    @SerializedName("oper_type")
-    private int operType;
-    @SerializedName("oper_time")
-    private double operTime;
-    @SerializedName("oper_async_point")
-    private int operAsyncPoint;
-    @SerializedName("oper_products")
-    private List<OperProduct> operProducts;
-
-    public int getOperType() {
-        return operType;
+    @SerializedName("oper_type_id")
+    private int operTypeId;
+    @SerializedName("oper_type_name")
+    private String operTypeName;
+    public int getOperTypeId() {
+            return operTypeId;
     }
-
-    public double getOperTime() {
-        return operTime;
+    public void setOperTypeId(int operTypeId) {
+        this.operTypeId = operTypeId;
     }
-
-    public int getOperAsyncPoint() {
-        return operAsyncPoint;
+    public String getOperTypeName() {
+        return operTypeName;
     }
-
-    public List<OperProduct> getOperProducts() {
-        return operProducts;
-    }
-
-    public void setOperType(int operType) {
-        this.operType = operType;
-    }
-
-    public void setOperTime(int operTime) {
-        this.operTime = operTime;
-    }
-
-    public void setOperAsyncPoint(int operAsyncPoint) {
-        this.operAsyncPoint = operAsyncPoint;
-    }
-
-    public void setOperProducts(List<OperProduct> operProducts) {
-        this.operProducts = operProducts;
+    public void setOperTypeName(String operTypeName) {
+        this.operTypeName = operTypeName;
     }
 }

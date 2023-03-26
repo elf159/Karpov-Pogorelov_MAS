@@ -1,10 +1,7 @@
 package org.example;
 
 import com.google.gson.Gson;
-import org.example.JsonClasses.Dish;
-import org.example.JsonClasses.DishInfo;
-import org.example.JsonClasses.OperProduct;
-import org.example.JsonClasses.Operation;
+import org.example.JsonClasses.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,76 +10,110 @@ import java.util.List;
 
 public class ManagerAgent {
     public ManagerAgent() {
-        readDishesInput();
-        readTechnologicalCardInput();
+
     }
-    private void readDishesInput() {
-        String filePath = "src/main/java/org/example/Jsons/dishesInput.txt";
-        try {
+    protected List<VisitorsAgent> visitorsAgents;
 
-            // Считать содержимое файла в строку
-            String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
 
-            // Создать экземпляр Gson
-            Gson gson = new Gson();
+    protected class TechnologicalCard{
+        protected final List<DishInfo> dish_cards;
 
-            // Десериализовать JSON в объект zeroVisitor
-            VisitorsAgent zeroVisitor = gson.fromJson(fileContent, VisitorsAgent.class);
-            for (Dish dish : zeroVisitor.getMenuDishes()) {
-                System.out.println("Dish ID: " + dish.getDishId());
-                System.out.println("Dish Card: " + dish.getDishCard());
-                System.out.println("Dish Price: " + dish.getDishPrice());
-                System.out.println("Dish Active: " + dish.isDishActive());
-                System.out.println();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private void readTechnologicalCardInput() {
-        String filePath = "src/main/java/org/example/Jsons/technologicalCard.txt";
-        try {
-
-            // Считать содержимое файла в строку
-            String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
-
-            // Создать экземпляр Gson
-            Gson gson = new Gson();
-
-            // Десериализовать JSON в объект technologicalCard
-            TechnologicalCard technologicalCard = gson.fromJson(fileContent, TechnologicalCard.class);
-            for (DishInfo dish : technologicalCard.getDish_cards()) {
-                System.out.println("card_id: " + dish.getCardId());
-                System.out.println("dish_name: " + dish.getDish_name());
-                System.out.println("card_descr: " + dish.getCardDescr());
-                System.out.println("card_time: " + dish.getCardTime());
-                System.out.println("equip_type: " + dish.getEquipType());
-                for (Operation operation : dish.getOperations()) {
-                    System.out.println("oper_type: " + operation.getOperType());
-                    System.out.println("oper_time: " + operation.getOperTime());
-                    System.out.println("oper_async_point: " + operation.getOperAsyncPoint());
-                    for(OperProduct operProduct : operation.getOperProducts()) {
-                        System.out.println("prod_type: " + operProduct.getProdType());
-                        System.out.println("prod_quantity: " + operProduct.getProdQuantity());
-                    }
-                }
-                System.out.println();
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private class TechnologicalCard{
-        private final List<DishInfo> dish_cards;
-
-        private TechnologicalCard(List<DishInfo> dish_cards) {
+        protected TechnologicalCard(List<DishInfo> dish_cards) {
             this.dish_cards = dish_cards;
         }
 
-        public List<DishInfo> getDish_cards() {
+        protected List<DishInfo> getDish_cards() {
             return dish_cards;
+        }
+    }
+    protected class Menu{
+        protected List<Dish> menu_dishes;
+
+        protected Menu(List<Dish> menu_dishes) {
+            this.menu_dishes = menu_dishes;
+        }
+        public List<Dish> getMenu_dishes() {
+            return menu_dishes;
+        }
+
+        public void setMenu_dishes(List<Dish> menu_dishes) {
+            this.menu_dishes = menu_dishes;
+        }
+    }
+    protected class ProductTypes{
+        protected final List<Product> product_types;
+        protected ProductTypes(List<Product> product_types){
+            this.product_types = product_types;
+        }
+
+        public List<Product> getProduct_types() {
+            return product_types;
+        }
+    }
+    protected class Products {
+        protected final List<ProductInfo> products;
+
+        protected Products(List<ProductInfo> products) {
+            this.products = products;
+        }
+
+        public List<ProductInfo> getProducts() {
+            return products;
+        }
+    }
+    protected class EquipmentTypes {
+        protected final List<Equipment> equipment_type;
+
+        protected EquipmentTypes(List<Equipment> equipment_type) {
+            this.equipment_type = equipment_type;
+        }
+
+        public List<Equipment> getEquipment_type() {
+            return equipment_type;
+        }
+    }
+    protected class EquipmentList {
+        protected final List<EquipmentInfo> equipment;
+
+        protected EquipmentList(List<EquipmentInfo> equipment) {
+            this.equipment = equipment;
+        }
+
+        public List<EquipmentInfo> getEquipment() {
+            return equipment;
+        }
+    }
+    protected class CookersList {
+        protected List<Cookers> cookers;
+
+        protected CookersList(List<Cookers> cookers) {
+            this.cookers = cookers;
+        }
+
+        public List<Cookers> getCookers() {
+            return cookers;
+        }
+    }
+    public class OperationsTypes {
+        private List<Operation> operation_types;
+
+        public List<Operation> getOperation_types() {
+            return operation_types;
+        }
+
+        public void setOperation_types(List<Operation> operation_types) {
+            this.operation_types = operation_types;
+        }
+    }
+    public class VisitorsOrders {
+        private List<Visitors> visitors_orders;
+
+        public List<Visitors> getVisitors_orders() {
+            return visitors_orders;
+        }
+
+        public void setVisitorsOrders(List<Visitors> visitors_orders) {
+            this.visitors_orders = visitors_orders;
         }
     }
 }

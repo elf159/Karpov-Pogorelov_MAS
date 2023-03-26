@@ -1,0 +1,7 @@
+{
+  "equipment_type": [{
+    "equip_type_id": 2,
+    "equip_type_name": "kettle"
+  }
+  ]
+}

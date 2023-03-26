@@ -1,6 +1,6 @@
 package org.example;
 import java.util.List;
-import org.example.JsonClasses.Dish;
+import org.example.JsonClasses.*;
 public class VisitorsAgent {
     private List<Dish> menu_dishes;
 
@@ -11,8 +11,4 @@ public class VisitorsAgent {
     public List<Dish> getMenuDishes() {
         return menu_dishes;
     }
-
-//    public final void setMenuDishes(List<Dish> menu_dishes_input) {
-//        menu_dishes = menu_dishes;
-//    }
 }
