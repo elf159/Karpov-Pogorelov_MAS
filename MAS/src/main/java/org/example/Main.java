@@ -6,5 +6,8 @@ public class Main {
         Reader reader = new Reader(managerAgent);
         managerAgent.watchOrders();
         managerAgent.writeStatisticsToJson();
+
+        managerAgent = null;
+        reader = null;
     }
 }

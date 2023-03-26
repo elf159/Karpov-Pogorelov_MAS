@@ -1,10 +1,1 @@
-{
-  "oper_id": 82325,
-  "oper_proc": 434,
-  "oper_card": 518,
-  "oper_started": "2023-02-28T10:12:37",
-  "oper_ended": "2023-02-28T10:12:49",
-  "oper_equip_id": 14,
-  "oper_coocker_id": 15,
-  "oper_active": false
-}
+[{"proc_started":"2023-02-28T10:12:37","proc_ended":"2023-02-28T10:12:37","proc_operations":0,"proc_id":1,"proc_active":false,"ord_dish":17},{"proc_started":"2023-02-28T11:09:07","proc_ended":"2023-02-28T11:09:07","proc_operations":13,"proc_id":2,"proc_active":false,"ord_dish":27},{"proc_started":"2023-02-28T10:12:37","proc_ended":"2023-02-28T10:12:37","proc_operations":0,"proc_id":1,"proc_active":false,"ord_dish":17},{"proc_started":"2023-02-28T11:09:07","proc_ended":"2023-02-28T11:09:07","proc_operations":13,"proc_id":2,"proc_active":false,"ord_dish":27},{"proc_started":"2023-02-28T10:12:37","proc_ended":"2023-02-28T10:12:37","proc_operations":0,"proc_id":1,"proc_active":false,"ord_dish":17},{"proc_started":"2023-02-28T11:09:07","proc_ended":"2023-02-28T11:09:07","proc_operations":13,"proc_id":2,"proc_active":false,"ord_dish":27},{"proc_started":"2023-02-28T10:12:37","proc_ended":"2023-02-28T10:12:37","proc_operations":0,"proc_id":1,"proc_active":false,"ord_dish":17},{"proc_started":"2023-02-28T11:09:07","proc_ended":"2023-02-28T11:09:07","proc_operations":13,"proc_id":2,"proc_active":false,"ord_dish":27}]

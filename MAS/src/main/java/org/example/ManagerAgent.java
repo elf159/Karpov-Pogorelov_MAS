@@ -1,36 +1,94 @@
 package org.example;
 
-import com.google.gson.Gson;
 import org.example.JsonClasses.*;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.io.FileWriter;
 import org.json.simple.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ManagerAgent {
-    TechnologicalCard technologicalCard;
-    Menu menu;
-    ProductTypes productTypes;
-    Products products;
-    EquipmentTypes equipmentTypes;
-    EquipmentList equipmentList;
-    CookersList cookersList;
-    OperationsTypes operationsTypes;
-    VisitorsOrders visitorsOrders;
+    protected TechnologicalCard technologicalCard;
+    protected Menu menu;
+    protected ProductTypes productTypes;
+    protected Products products;
+    protected EquipmentTypes equipmentTypes;
+    protected EquipmentList equipmentList;
+    protected CookersList cookersList;
+    protected OperationsTypes operationsTypes;
+    protected VisitorsOrders visitorsOrders;
     private int total_sum_earned_for_today;
     private int amount_of_today_visitors;
-    private int error_input_amount;
-    private int error_not_of_input_amount ;
+    private int error_input_amount = 0;
+    private int error_not_of_input_amount = 0;
+    protected List<VisitorsAgent> visitorsAgents;
+
+    private int proc_id = 0;
+    private int oper_id = 0;
+    private int ord_dish = 7;
     public ManagerAgent() {
     }
 
     protected void watchOrders(){
+        //вспомогательная переменная
+        int menu_dish_id;
+
+        //переменные для агентов блюд
+        String proc_started;
+        String proc_ended;
+        boolean proc_active;
+        int proc_operations;
+
+        // Переменные для агентов операций
+        int oper_proc;
+        int oper_card;
+        String oper_started;
+        String oper_ended;
+        int oper_equip_id;
+        int oper_coocker_id;
+        boolean oper_active;
+
+        visitorsAgents = new ArrayList<>();
         for (Visitors visitor : visitorsOrders.getVisitors_orders()) {
             total_sum_earned_for_today += visitor.getVis_ord_total();
             amount_of_today_visitors += 1;
+
+            VisitorsAgent registered = new VisitorsAgent(visitor, menu);
+            visitorsAgents.add(registered);
+
+            proc_id += 1;
+            ord_dish += 10;
+            proc_started = visitor.getVis_ord_started();
+            proc_ended = visitor.getVis_ord_started();
+            proc_active = false;
+            proc_operations = oper_id;
+
+            DishesAgent dishesAgent = new DishesAgent(proc_id,ord_dish, proc_started, proc_ended, proc_active, proc_operations);
+
+            menu_dish_id = visitor.getVis_ord_dishes().get(0).getMenu_dish();
+
+            oper_id -= -13;
+            oper_proc = proc_id;
+            oper_card = 0;
+            for (Dish dish : menu.getMenu_dishes()){
+                if (menu_dish_id == dish.getDishId()) {
+                    oper_card = dish.getDishCard();
+                }
+            }
+            oper_started = visitor.getVis_ord_started();
+            oper_ended = visitor.getVis_ord_ended();
+            oper_equip_id = equipmentList.getEquipment().get((int)Math. floor(Math. random() * equipmentList.getEquipment().size())).getEquipId();
+            oper_coocker_id = cookersList.getCookers().get((int)Math. floor(Math. random() * cookersList.getCookers().size())).getCookId();
+            oper_active = false;
+
+
+            OperationsAgent operationsAgent = new OperationsAgent(oper_id, oper_proc, oper_card,oper_started, oper_ended, oper_equip_id, oper_coocker_id, oper_active);
+
+            dishesAgent.finish();
+            operationsAgent.finish();
         }
     }
     protected void writeStatisticsToJson() {
@@ -61,7 +119,6 @@ public class ManagerAgent {
         }
         jsonObject = null;
     }
-    protected List<VisitorsAgent> visitorsAgents;
     public class TechnologicalCard{
         protected final List<DishInfo> dish_cards;
 

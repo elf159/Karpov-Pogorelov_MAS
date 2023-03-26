@@ -220,6 +220,7 @@ public class Reader {
                     System.out.println("");
                 }
             }
+            System.out.println("---READING FINISHED---");
         } catch (IOException e) {
             e.printStackTrace();
         }
