@@ -92,7 +92,7 @@ public class ManagerAgent {
             operationsAgent.finish();
         }
     }
-    //Метод writeStatisticsToJson() создает JSON-объект,
+    //Метод writeStatisticsToJson() создает JSON-объект  ,
     // который содержит информацию о суммарной выручке за сегодня и количестве посетителей за сегодня, и записывает его в файл "statistic_logs.txt".
     protected void writeStatisticsToJson() {
         String fileName = "src/main/java/org/example/JsonOutput/statistic_logs.txt";
