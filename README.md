@@ -5,7 +5,7 @@
 
 # Инструкция
 Для взаимодействия с программой можно ознакомиться с json файлами (в формате txt), находящимися 
-в директории Karpov-Pogorelov_MAS/MAS/src/main/java/org/example/Jsons/.
+в директории Karpov-Pogorelov_MAS/MAS/src/main/java/org/example/JsonsInput/.
 
 Их можно менять, например добавлять посетителей в visitors_orders.txt:
 ![image](https://user-images.githubusercontent.com/89385262/227809645-701e369d-6fd3-4b9d-8634-88bb997de75f.png)
