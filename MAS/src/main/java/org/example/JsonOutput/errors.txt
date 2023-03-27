@@ -1,0 +1,4 @@
+{
+  "error_input_amount" : 0,
+  "error_not_of_input_amount" : 0
+}

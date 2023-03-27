@@ -7,24 +7,24 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Reader {
-    public Reader() {
+    public Reader(ManagerAgent managerAgent) {
         // Создать экземпляр Gson
         Gson gson = new Gson();
 
-        readDishesInput(gson);
-        readTechnologicalCardInput(gson);
-        readProductTypes(gson);
-        readProducts(gson);
-        readEquipmentType(gson);
-        readEquipment(gson);
-        readCookers(gson);
-        readOperationsTypes(gson);
-        readVisitorsOrders(gson);
+        readDishesInput(gson, managerAgent);
+        readTechnologicalCardInput(gson, managerAgent);
+        readProductTypes(gson, managerAgent);
+        readProducts(gson, managerAgent);
+        readEquipmentType(gson, managerAgent);
+        readEquipment(gson, managerAgent);
+        readCookers(gson, managerAgent);
+        readOperationsTypes(gson, managerAgent);
+        readVisitorsOrders(gson, managerAgent);
 
         gson = null;
     }
-    private void readDishesInput(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/menu_dishes.txt";
+    private void readDishesInput(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/menu_dishes.txt";
         try {
 
             // Считать содержимое файла в строку
@@ -32,6 +32,7 @@ public class Reader {
 
             // Десериализовать JSON в объект zeroVisitor
             ManagerAgent.Menu menu = gson.fromJson(fileContent, ManagerAgent.Menu.class);
+            managerAgent.menu = menu;
             System.out.println("Menu:");
             for (Dish dish : menu.getMenu_dishes()) {
                 System.out.println("Dish ID: " + dish.getDishId());
@@ -40,13 +41,12 @@ public class Reader {
                 System.out.println("Dish Active: " + dish.isDishActive());
                 System.out.println();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    private void readTechnologicalCardInput(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/dish_cards.txt";
+    private void readTechnologicalCardInput(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/dish_cards.txt";
         try {
 
             // Считать содержимое файла в строку
@@ -54,6 +54,7 @@ public class Reader {
 
             // Десериализовать JSON в объект technologicalCard
             ManagerAgent.TechnologicalCard technologicalCard = gson.fromJson(fileContent, ManagerAgent.TechnologicalCard.class);
+            managerAgent.technologicalCard = technologicalCard;
             System.out.println("TechnologicalCard:");
             for (DishInfo dish : technologicalCard.getDish_cards()) {
                 System.out.println("card_id: " + dish.getCardId());
@@ -77,8 +78,8 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readProductTypes(Gson gson){
-        String filePath = "src/main/java/org/example/Jsons/product_types.txt";
+    private void readProductTypes(Gson gson, ManagerAgent managerAgent){
+        String filePath = "src/main/java/org/example/JsonsInput/product_types.txt";
         try {
 
             // Считать содержимое файла в строку
@@ -86,6 +87,7 @@ public class Reader {
 
             // Десериализовать JSON в объект technologicalCard
             ManagerAgent.ProductTypes productTypes = gson.fromJson(fileContent, ManagerAgent.ProductTypes.class);
+            managerAgent.productTypes = productTypes;
             System.out.println("ProductTypes:");
             for (Product product_type : productTypes.getProduct_types()) {
                 System.out.println("prod_type_id: " + product_type.getProd_type_id());
@@ -97,13 +99,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readProducts(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/products.txt";
+    private void readProducts(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/products.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект Products
             ManagerAgent.Products products = gson.fromJson(fileContent, ManagerAgent.Products.class);
+            managerAgent.products = products;
             System.out.println("Products:");
             for (ProductInfo product : products.getProducts()) {
                 System.out.println("prod_item_id: " + product.getProd_item_id());
@@ -121,13 +124,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readEquipmentType(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/equipment_types.txt";
+    private void readEquipmentType(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/equipment_types.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект EquipmentType
             ManagerAgent.EquipmentTypes equipmentTypes = gson.fromJson(fileContent, ManagerAgent.EquipmentTypes.class);
+            managerAgent.equipmentTypes = equipmentTypes;
             System.out.println("EquipmentType:");
             for (Equipment type : equipmentTypes.getEquipment_type()) {
                 System.out.println("equip_type_id: " + type.getEquipTypeId());
@@ -138,13 +142,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readEquipment(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/equipment.txt";
+    private void readEquipment(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/equipment.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект EquipmentList
             ManagerAgent.EquipmentList equipmentList = gson.fromJson(fileContent, ManagerAgent.EquipmentList.class);
+            managerAgent.equipmentList = equipmentList;
             System.out.println("Equipment:");
             for (EquipmentInfo equipment : equipmentList.getEquipment()) {
                 System.out.println("equip_id: " + equipment.getEquipId());
@@ -157,13 +162,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readCookers(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/cookers.txt";
+    private void readCookers(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/cookers.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект Cookers
             ManagerAgent.CookersList cookers = gson.fromJson(fileContent, ManagerAgent.CookersList.class);
+            managerAgent.cookersList = cookers;
             System.out.println("Cookers:");
             for (Cookers cooker : cookers.getCookers()) {
                 System.out.println("cook_id: " + cooker.getCookId());
@@ -175,13 +181,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readOperationsTypes(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/operation_types.txt";
+    private void readOperationsTypes(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/operation_types.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект OperationsTypes
             ManagerAgent.OperationsTypes operationsTypes = gson.fromJson(fileContent, ManagerAgent.OperationsTypes.class);
+            managerAgent.operationsTypes = operationsTypes;
             System.out.println("OperationTypes");
             for (Operation operationType : operationsTypes.getOperation_types()) {
                 System.out.println("oper_type_id: " + operationType.getOperTypeId());
@@ -192,13 +199,14 @@ public class Reader {
             e.printStackTrace();
         }
     }
-    private void readVisitorsOrders(Gson gson) {
-        String filePath = "src/main/java/org/example/Jsons/visitors_orders.txt";
+    private void readVisitorsOrders(Gson gson, ManagerAgent managerAgent) {
+        String filePath = "src/main/java/org/example/JsonsInput/visitors_orders.txt";
         try {
             // Считать содержимое файла в строку
             String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
             // Десериализовать JSON в объект OperationsTypes
             ManagerAgent.VisitorsOrders visitorsOrders = gson.fromJson(fileContent, ManagerAgent.VisitorsOrders.class);
+            managerAgent.visitorsOrders = visitorsOrders;
             System.out.println("Visitors orders:");
             for (Visitors visitor : visitorsOrders.getVisitors_orders()) {
                 System.out.println("vis_name: " + visitor.getVis_name());

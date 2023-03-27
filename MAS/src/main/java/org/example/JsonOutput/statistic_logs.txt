@@ -1,0 +1,1 @@
+{"Amount_of_today_visitors":2,"Total_sum_earned_for_today":177}
