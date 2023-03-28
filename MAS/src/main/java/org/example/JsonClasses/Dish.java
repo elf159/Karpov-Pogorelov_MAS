@@ -1,5 +1,5 @@
 package org.example.JsonClasses;
-
+//Класс для сериализации 
 import com.google.gson.annotations.SerializedName;
 
 public class Dish {

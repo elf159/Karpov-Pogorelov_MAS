@@ -1,7 +1,9 @@
 package org.example.JsonClasses;
 
 import com.google.gson.annotations.SerializedName;
-
+//класс, описывающий продукт
+//имеет поля prod_type_id (идентификатор типа продукта), prod_type_name (наименование продукта) и prod_is_food (является ли продукт пищевым)
+//имеет геттеры и сеттеры для каждого поля
 public class Product {
     @SerializedName("prod_type_id")
     private int prod_type_id;

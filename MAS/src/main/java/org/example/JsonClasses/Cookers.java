@@ -1,7 +1,7 @@
 package org.example.JsonClasses;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
-
+//// Этот код определяет класс Cookers, который будет использоваться для десериализации объектов JSON.
 public class Cookers {
     @SerializedName("cook_id")
     private int cookId;

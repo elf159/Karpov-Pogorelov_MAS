@@ -23,6 +23,8 @@ public class Reader {
 
         gson = null;
     }
+    //Метод readDishesInput читает JSON-файл menu_dishes.txt, который содержит информацию о блюдах в меню.
+    // Десериализует JSON-объект в объект ManagerAgent.Menu и печатает информацию о каждом блюде на экран.
     private void readDishesInput(Gson gson, ManagerAgent managerAgent) {
         String filePath = "src/main/java/org/example/JsonsInput/menu_dishes.txt";
         try {
@@ -45,6 +47,8 @@ public class Reader {
             e.printStackTrace();
         }
     }
+    //Метод readTechnologicalCardInput читает JSON-файл dish_cards.txt, который содержит информацию о картах блюд и их технологической карты.
+    // Десериализует JSON-объект в объект ManagerAgent.TechnologicalCard и печатает информацию о каждой карте и ее операциях на экран.
     private void readTechnologicalCardInput(Gson gson, ManagerAgent managerAgent) {
         String filePath = "src/main/java/org/example/JsonsInput/dish_cards.txt";
         try {
@@ -78,6 +82,8 @@ public class Reader {
             e.printStackTrace();
         }
     }
+    //Методы readProductTypes и readProducts считывают JSON-файлы product_types.txt и products.txt соответственно.
+    // Они десериализуют JSON-объекты в объекты ManagerAgent.ProductTypes и ManagerAgent.Products и выводят информацию о каждом типе продукта и каждом продукте соответственно на экран.
     private void readProductTypes(Gson gson, ManagerAgent managerAgent){
         String filePath = "src/main/java/org/example/JsonsInput/product_types.txt";
         try {

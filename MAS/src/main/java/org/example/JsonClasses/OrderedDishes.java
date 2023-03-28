@@ -1,6 +1,7 @@
 package org.example.JsonClasses;
 
 import com.google.gson.annotations.SerializedName;
+//Класс OrderedDishes содержит поля ord_dish_id и menu_dish, которые соответствуют идентификатору заказанного блюда и идентификатору блюда в меню.
 
 public class OrderedDishes {
     @SerializedName("ord_dish_id")

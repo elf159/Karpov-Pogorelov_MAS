@@ -3,7 +3,7 @@ package org.example.JsonClasses;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+//Класс OperationInfo содержит информацию об операциях
 public class OperationInfo {
     @SerializedName("oper_type")
     private int operType;

@@ -3,7 +3,8 @@ package org.example.JsonClasses;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+//Класс Operation описывает операции, используемые в приложении.
+//У класса есть два поля: operTypeId и operTypeName, которые представляют идентификатор и название типа операции соответственно.
 public class Operation {
     @SerializedName("oper_type_id")
     private int operTypeId;

@@ -1,7 +1,13 @@
 package org.example.JsonClasses;
 
 import com.google.gson.annotations.SerializedName;
+//Класс "EquipmentInfo" содержит информацию о конкретном оборудовании.
 
+//Аннотация @SerializedName используется для указания имени поля при десериализации объекта из JSON.
+//Поле "equipId" хранит уникальный идентификатор оборудования.
+//Поле "equipType" хранит тип оборудования (ссылается на соответствующий объект класса "Equipment").
+//Поле "equipName" содержит название конкретного оборудования.
+//Поле "equipActive" указывает, активно ли данное оборудование.
 public class EquipmentInfo {
     @SerializedName("equip_id")
     private int equipId;

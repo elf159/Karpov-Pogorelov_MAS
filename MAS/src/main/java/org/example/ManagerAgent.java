@@ -31,7 +31,8 @@ public class ManagerAgent {
     private int ord_dish = 7;
     public ManagerAgent() {
     }
-
+//Метод watchOrders() в цикле обходит список посетителей visitorsOrders и на основе полученных данных создает объекты
+// VisitorsAgent, DishesAgent и OperationsAgent для каждого из них. Затем для всех созданных объектов вызывается метод finish().
     protected void watchOrders(){
         //вспомогательная переменная
         int menu_dish_id;
@@ -91,6 +92,8 @@ public class ManagerAgent {
             operationsAgent.finish();
         }
     }
+    //Метод writeStatisticsToJson() создает JSON-объект,
+    // который содержит информацию о суммарной выручке за сегодня и количестве посетителей за сегодня, и записывает его в файл "statistic_logs.txt".
     protected void writeStatisticsToJson() {
         String fileName = "src/main/java/org/example/JsonOutput/statistic_logs.txt";
         JSONObject jsonObject = new JSONObject();
@@ -105,6 +108,7 @@ public class ManagerAgent {
         }
         jsonObject = null;
     }
+    //Метод writeErrorsToJson() создает JSON-объект, который содержит информацию об ошибках ввода, и записывает его в файл "errors.txt".
     protected void writeErrorsToJson() {
         String fileName = "src/main/java/org/example/JsonOutput/errors.txt";
         JSONObject jsonObject = new JSONObject();

@@ -1,7 +1,9 @@
 package org.example.JsonClasses;
+//Класс "Equipment" содержит информацию об оборудовании.
 
 import com.google.gson.annotations.SerializedName;
-
+//Поле "equipTypeId" хранит уникальный идентификатор типа оборудования.
+//Поле "equipTypeName" содержит название типа оборудования.
 public class Equipment {
     @SerializedName("equip_type_id")
     private int equipTypeId;

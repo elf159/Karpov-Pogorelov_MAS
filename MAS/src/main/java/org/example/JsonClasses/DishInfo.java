@@ -1,5 +1,5 @@
 package org.example.JsonClasses;
-
+// Этот код определяет класс DishInfo, который будет использоваться для десериализации объектов JSON
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

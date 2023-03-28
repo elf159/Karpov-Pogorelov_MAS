@@ -25,6 +25,7 @@ public class OperationsAgent {
         this.oper_coocker_id = oper_coocker_id;
         this.oper_active = oper_active;
     }
+    //Метод finish() создает объект JSONObject, содержащий информацию о выполненной операции, добавляет его в список уничтоженных объектов и вызывает метод writeDestroyedObjects() для записи списка в файл.
     public void finish() {
         JSONObject obj = new JSONObject();
         obj.put("oper_id", oper_id);
@@ -41,6 +42,7 @@ public class OperationsAgent {
         destroyedObjects.add(obj);
         writeDestroyedObjects(destroyedObjects);
     }
+    //Метод getDestroyedObjects() считывает список уничтоженных объектов из файла, используя библиотеку json-simple.
     private static List<JSONObject> getDestroyedObjects() {
         // read the list of destroyed objects from the file
         String filename = "src/main/java/org/example/JsonOutput/operations_logs.txt";
@@ -53,6 +55,7 @@ public class OperationsAgent {
         }
         return destroyedObjects;
     }
+    //Метод writeDestroyedObjects() записывает список уничтоженных объектов в файл, используя методы библиотеки json-simple.
     private static void writeDestroyedObjects(List<JSONObject> destroyedObjects) {
         // write the list of destroyed objects to the file
         String filename = "src/main/java/org/example/JsonOutput/operations_logs.txt";
